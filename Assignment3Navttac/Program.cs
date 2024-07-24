@@ -13,7 +13,7 @@ namespace Assignment3Navttac
             Console.WriteLine("\nSolution 1:");
             for (int i = 0; i <= 3; i++)
             {
-                for (int j = 1; j <= i; j++)
+                for (int j = 0; j < i; j++)
                 {
 
                     Console.Write("*");
@@ -40,7 +40,7 @@ namespace Assignment3Navttac
                         Console.Write(j);
                     }
                 }
-                
+
                 Console.WriteLine();
             }
             //Store these marks in a list and display average of student, max marks, minumum
@@ -49,10 +49,10 @@ namespace Assignment3Navttac
             int averageMarks = 0;
             int maxMarks = 0;
             int minMarks = 0;
-            for (int i = 0;i < marks.Count ;i++)
+            for (int i = 0; i < marks.Count; i++)
             {
                 averageMarks += marks[i];
-                if(marks[i] > maxMarks)
+                if (marks[i] > maxMarks)
                 {
                     maxMarks = marks[i];
                 }
