@@ -1,70 +1,102 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.Design;
 using System.Net.NetworkInformation;
+using System.Reflection;
 
 namespace Assignment3Navttac
 {
     internal class Program
     {
         static void Main(string[] args)
-        {
+        {    /* Lecture 6 
+              * Arrays
+              * Dictionery
+              * Method
+              debugger ko ham wapis uper bhi lekr ja skty hain.
+              jab chalti application ma change krni ho or program na band krna chahty hon to hot reload use krain gy
+              Methods of list
+              List of T a list with any dataType
+              List<T> Where T is Generic
+              after using methods hover that to check the return type of it
+              Assignment is exploring the methods with Go to defination
+              Capacity or Count dekh k ana ha count k method ki properties ma
+              array sir by default data type pa banti ha or list hamari custom data types pa bhi ban skti ha
+              array fix size ki hoti ha is ma hamna size define krna hot ha. Or list hmari dynamic hoti ha usma add or remove bhi kr skty hain
+              */
+
             //Using nested for loops print these patterns
-            Console.WriteLine("Using nested for loops print these patterns \n");
-            Console.WriteLine("\nSolution 1:");
-            for (int i = 0; i <= 3; i++)
+            int sum = Sum("2", 3);
+            Console.WriteLine($"Sum = {sum}");
+            int Sum(string a, int b)
             {
-                for (int j = 0; j < i; j++)
-                {
+                int aInt = Convert.ToInt32(a);
 
-                    Console.Write("*");
-
-                }
-                Console.WriteLine();
+                int sum = aInt + b;
+                return sum;
             }
-            Console.WriteLine("\nSolution 2: \n");
-            for (int i = 3; i >= 1; i--)
+            //List<int> marks = new List<int>
+            //{
+            //    19,
+            //    25,
+            //    18,
+            //    34,
+            //    23
+            //};
+            //int count = marks.Count;
+            //List<string> stringList = new List<string>();
+            //stringList.Add("1");
+            //stringList.AddRange();
+            //stringList.ForEach();
+            //stringList.BinarySearch();
+            //stringList.Contains();
+
+
+
+            // Arrays
+            // syntax
+
+
+
+            List<int> num = new List<int>
             {
-                if (i == 2)
+                5,6,7,8
+            };
+            List<int> num1 = new List<int>
+            {
+                1,2,3,4
+            };
+            for (int i = 0; i < 4; i++)
+            {
+                num.Add(i);
+                if (i <= 3)
                 {
-                    i++;
-                    for (int j = i; j >= 2; j--)
+                    if (i == 0)
                     {
-                        Console.Write(j);
+                        num1.Clear();
+                        num1.Add(num[i]);
                     }
-                    i--;
+                    else
+                    {
+                        num1.Add(num[i]);
+                    }
+
+
                 }
                 else
+                    if (i == 4)
                 {
-                    for (int j = i; j >= 1; j--)
-                    {
-                        Console.Write(j);
-                    }
-                }
 
-                Console.WriteLine();
-            }
-            //Store these marks in a list and display average of student, max marks, minumum
-            Console.WriteLine("\nSolution for Store marks in a list and display average of student, max marks, minumum marks \n\n");
-            List<int> marks = new List<int> { 0, 98, 67, 9, 45, 44, 23, 2 };
-            int averageMarks = 0;
-            int maxMarks = 0;
-            int minMarks = 0;
-            for (int i = 0; i < marks.Count; i++)
-            {
-                averageMarks += marks[i];
-                if (marks[i] > maxMarks)
-                {
-                    maxMarks = marks[i];
                 }
-                if (marks[i] < minMarks)
-                {
-                    minMarks = marks[i];
-                }
+                
+
             }
-            averageMarks = averageMarks / marks.Count;
-            Console.WriteLine($"Average marks of Student is: {averageMarks}");
-            Console.WriteLine($"Max marks of Student is: {maxMarks}");
-            Console.WriteLine($"Min marks of Student is: {minMarks}");
+            num.RemoveRange(4, 4);
+
+
+            // do list int or string dono ka data shuffle krna ha
             Console.ReadKey();
         }
     }
